@@ -7,7 +7,36 @@
     <title>Bao Games</title>
 </head>
 <body>
-   <center><h1>Bao Web Game</h1></center>
-    <p><a href="Yolo.html" target="_blank">Click here to Play YOLO</a></p>
+   
+   <nav>
+    <center><span id="navbar"><h1>Bao Web Games</h1></span></center>
+   </nav>
+   <div id="shine"></div>
+   <br>
+   <span id="sect1">Our Top Games</span><br><br>
+   <div class="game-box">
+        YOLO - Memory Game <br>
+        <center><button onclick="toYolo()">Play</button></center>
+   </div>
+   <div class="game-box">
+        Ping Pong - Dangling Ball <br>
+        <center><button onclick="toPingPong()">Play</button></center>
+   </div>
+    <!-- <p><a href="Yolo.html" target="_blank">Click here to Play YOLO</a></p> -->
 </body>
+<script>
+    function toYolo(){
+        // window.open('https://www.example.com', '_blank');
+        window.open("Yolo.html" , '_blank')
+    }
+    function toPingPong(){
+        window.open("https://pingpongpb.netlify.app/" , '_blank')
+    }
+</script>
 </html>
+
+<!-- Agenda :
+    -> Set The Lives Counter 
+    -> Disable the controls at the back
+
+-->

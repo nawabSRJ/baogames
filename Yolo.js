@@ -18,6 +18,10 @@ var stickers = [
 ];
 let pick1 = "" , pick2 = "";    // append URL when imgs clicked
 let score = 0;
+let lives = stickers.length / 2;
+function updateLives(){
+document.getElementById('lives').innerHTML = lives.toString();
+}
 let chosen = [];
 var shuf_stickers = stickers.sort(()=>( Math.random() > .5) ? 2 : -1);
 for(var i = 0; i < stickers.length ; i++){
@@ -36,6 +40,11 @@ for(var i = 0; i < stickers.length ; i++){
             chosen.push(this);
             if(pick1 === ""){ 
                 pick1 = this.querySelector('img').src;
+                lives--;
+                if(lives == 0){
+                    showGameOverMessage();
+                }
+                updateLives();
                 
             }else if(pick2 === ""){
                 pick2 = this.querySelector('img').src;

@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Yolo.css">
+    <!-- for ensuring the correct scale at client's end -->
+    <style>
+        body {
+            transform: scale(0.9);
+            transform-origin: 0 0; /* Ensures the scaling starts from the top left corner */
+        }
+    </style>
+    <!--  -->
     <title>Memory Game</title>
 </head>
 <body>
     <center><h1>YOLO Game</h1>
-    <span style="font-size: 25px;">Score : </span><div id="score"></div></center>
+    <span style="font-size: 25px;">Score : </span><span id="score"></span>
+    <span style="margin-left: 25px; font-size: 25px;">Lives : </span><span id="lives">8</span></center>
     <hr style="width: 70%;"><br>
 
      <!-- for welcome -->
@@ -20,6 +29,7 @@
                 <li>Click on any two blocks</li>
                 <li>if they match -> Score +1</li>
                 <li>if they don't match -> No change</li>
+                <li><strong>We recommend zooming out to 90% for the best experience. (Ctrl + -)</strong></li>
             </ul>
         </div>
         <button id="welcomeButton" >Let's Play</button>
