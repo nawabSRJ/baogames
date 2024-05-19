@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>KBC Web Game</title>
+</head>
+<body>
+    <center><h1 style="font-family: Arial, Helvetica, sans-serif;">KBC WEB GAME</h1></center>
+    <!--------------------------- For Welcome and Game Over ---------------------------->
+    <!-- for welcome -->
+    <div id="welcomeMessage" class="hidden"> 
+        <div class="msg">Welcome</div>
+        <div class="instructions">
+            <ul>
+                <li>Each Question has <b>one</b> correct answer</li>
+                <li>On Correct choice 👉🏿 Score : +10</li>
+                <li>No Negative for incorrect answers</li>
+                <li>Please wait for new question and options</li>
+
+                
+            </ul>
+        </div>
+        <button id="welcomeButton" onclick="startupAudio.play()">Let's Play</button>
+
+    </div>
+    <!-- Hidden div for game over message -->
+    <div id="gameOverMessage" class="hidden">
+        <div class="msg">Game Over</div><br>
+        <div class="tenor-gif-embed" data-postid="23946034" data-share-method="host" data-aspect-ratio="1.33333" data-width="100%"><a href="https://tenor.com/view/good-night-tc-take-care-kbc-amitabh-bachchan-gif-23946034">Good Night Tc GIF</a>from <a href="https://tenor.com/search/good+night-gifs">Good Night GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        
+        <button id="rematchButton" onclick="ReLoadGame()">Rematch</button>
+    </div>
+    <!-- * ------------------------------------------------------------------------------>
+    <main>
+    <div class="main-cont">
+        <div class="que-cont" id="que-box">
+            Question here
+        </div>
+        <div class="options-cont">
+            <div class="box" id="a" onclick="submitAnswer('a')">Option 1</div>
+            <div class="box" id="b" onclick="submitAnswer('b')">Option 2</div>
+            <div class="box" id="c" onclick="submitAnswer('c')">Option 3</div>
+            <div class="box" id="d" onclick="submitAnswer('d')">Option 4</div>
+        </div>
+        <div class="match-card">
+            <strong>
+                Correct : <span id="correct"></span>
+                Incorrect : <span id="incorrect"></span>
+                Score : <span id="score"></span><br>
+            </strong>
+        </div>
+    </div>
+</main>
+</body>
+<!-- <script src="index.js"></script> -->
+<script src="app.js"></script>
+<script>
+    const startupAudio = new Audio();
+    startupAudio.src = "kbc_start.mp3"
+
+    // -------------------------------------------
+    document.addEventListener('DOMContentLoaded', function() {
+        welcomeMessage();
+        var startButton = document.getElementById('welcomeButton');
+    
+        startButton.addEventListener('click', function() {
+            endWelcome(); 
+        });
+    });
+    
+    function endWelcome(){
+        document.getElementById('welcomeMessage').classList.add('hidden');
+        
+    }
+    // for game over msg
+function showGameOverMessage() {
+    document.getElementById('gameOverMessage').classList.remove('hidden');
+    let rematchBtn = document.getElementById('rematchButton');
+    rematchBtn.focus();
+}
+function welcomeMessage(){
+    document.getElementById('welcomeMessage').classList.remove('hidden');
+}
+
+// for restricting controls
+// const options = document.querySelectorAll('.box');
+
+// options.forEach(option => {
+//   option.addEventListener('click', () => {
+//     option.classList.add('no-select'); // Add a new class for user-select
+//   });
+// });
+    // rematch 
+    
+    function ReLoadGame(){
+        window.location.reload();
+    }
+</script>
+
+</html>
